@@ -1,0 +1,15 @@
+使用 python -m pip 方式（最直接）
+不直接调用 pip.exe，而是让当前 Python 解释器运行 pip 模块：
+  ### python -m pip install labelimg -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+修复 pip 启动器（如果上面方法成功）
+成功安装或执行后，可以修复 pip 的指向：
+  ### python -m pip install --upgrade --force-reinstall pip
+
+distutils 模块从 Python 3.12 开始，已经正式从标准库中被移除了。不过别担心，我们有很多方法可以绕过它。
+最直接的方法就是安装 setuptools 来提供兼容支持。setuptools 不仅是 distutils 的增强替代品，安装后还会自动提供一个 distutils 模块，让那些旧版代码或依赖它的程序可以正常运行。
+你可以按照下面的步骤一步步排查：
+安装或更新 setuptools
+  ### python -m pip install --upgrade setuptools
+
+运行 labelimg
